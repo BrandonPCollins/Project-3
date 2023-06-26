@@ -62,5 +62,9 @@ def count_hit_ships(board):
 create_ships(HIDDEN_BOARD) 
 turns = 10
 print_board(HIDDEN_BOARD)
-print_board(GUESS_BOARD)
+
+while turns > 0: 
+    print('Greetings Commander. The world Naval Alliance needs your help!')
+    print_board(GUESS_BOARD)
+
 #while turns > 0:
