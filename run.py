@@ -11,14 +11,18 @@
 #For random int
 from random import randint 
 
+#Variable for board size 
+
+board_size = 8 
+
 #For the Ships 
-HIDDEN_BOARD = [[' '] * 8 for x in range (8)] 
+HIDDEN_BOARD = [[' '] * 8 for x in range (board_size)] 
 
 #For Guessing
-GUESS_BOARD = [[' '] * 8 for x in range (8)] 
+GUESS_BOARD = [[' '] * 8 for x in range (board_size)] 
 
 #Convert guess letter string to int 
-letters_to_numbers = {'A':0, 'B':1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7}
+letters_to_numbers = {'A':0, 'B':1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8 }
 
 #Function for the creation of the board 
 def print_board(board):
@@ -30,10 +34,12 @@ def print_board(board):
         row_number += 1
     print(' - - - - - - - - ')
 
+#Variable for number of ships
+num_of_ships = 5  
 
 #Places ships on the board on game start 
 def create_ships(board):
-    for ship in range(5):
+    for ship in range(num_of_ships):
         ship_row, ship_column = randint(0,7), randint(0,7) 
         while board[ship_row][ship_column] == 'X':
             ship_row, ship_column = randint(0,7), randint(0,7)
