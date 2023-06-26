@@ -64,6 +64,7 @@ print_board(HIDDEN_BOARD)
 turns = 10
 
 
+#Game Loop 
 while turns > 0: 
     if turns == 10: 
         print('Greetings Commander. The world Naval Alliance needs your help!\n Aliens are invading and you need to blow em up.')
@@ -87,4 +88,3 @@ while turns > 0:
         print('The aliens have landed, commander. We have failed!')
         break 
 
-#while turns > 0:
