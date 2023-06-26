@@ -41,14 +41,14 @@ def create_ships(board):
 
 #Player Enters a location to hit a ship 
 def get_ship_location():
-        row = input('Please enter a ship row numbered 1-8')
+        row = input('Please enter a ship row numbered 1-8:\n')
         while row not in '12345678':
             print('Please enter a valid row') 
-            row = input('Please enter a ship row numbered 1-8')
-        column = input('Please enter a ship column A-H').upper()
+            row = input('Please enter a ship row numbered 1-8:\n')
+        column = input('Please enter a ship column A-H:\n').upper()
         while column not in 'ABCDEFGH':
             print('Please enter a valid column')
-            column = input('Please enter a ship column A-H').upper()
+            column = input('Please enter a ship column A-H:\n').upper()
         return int(row) - 1, letters_to_numbers[column]
 
 def count_hit_ships(board):
@@ -60,17 +60,20 @@ def count_hit_ships(board):
     return count 
 
 create_ships(HIDDEN_BOARD) 
+print_board(HIDDEN_BOARD)
 turns = 10
 
+
 while turns > 0: 
-    print('Greetings Commander. The world Naval Alliance needs your help!')
+    if turns == 10: 
+        print('Greetings Commander. The world Naval Alliance needs your help!\n Aliens are invading and you need to blow em up.')
     print_board(GUESS_BOARD)
     row, column = get_ship_location()
     if GUESS_BOARD[row][column] == '-':
         print('You have already bombed that co-ordinate')
     elif HIDDEN_BOARD[row][column] == 'X':
         print('You have struck one of the invaders ships! Well done commander')
-        UESS_BOARD[row][column] = 'X'
+        GUESS_BOARD[row][column] = 'X'
         turns -= 1 
     else:
         print('No casualties there commander, a miss!')
@@ -79,7 +82,7 @@ while turns > 0:
     if count_hit_ships(GUESS_BOARD) == 5:
         print('Congrats, you have saved the earth!')
         break
-    print('You have' + str(turns) + ' turns remaining')
+    print('You have ' + str(turns) + ' turns remaining')
     if turns == 0:
         print('The aliens have landed, commander. We have failed!')
         break 
