@@ -36,8 +36,20 @@ def create_ships(board):
             ship_row, ship_column = randint(0,7), randint(0,7)
         board[ship,row][ship_column = 'X' ]
 
+
+#Do a try and except on these later to prevent crashing!!! 
+
+#Player Enters a location to hit a ship 
 def get_ship_location():
-    pass 
+        row = input('Please enter a ship row numbered 1-8')
+        while row not in '12345678':
+            print('Please enter a valid row') 
+            row = input('Please enter a ship row numbered 1-8')
+        column = input('Please enter a ship column A-H').upper()
+        while column not in 'ABCDEFGH':
+            print('Please enter a valid column')
+            column = input('Please enter a ship column A-H').upper()
+        return int(row) - 1, letters_to_numbers[column]
 
 def count_hit_ships():
     pass 
