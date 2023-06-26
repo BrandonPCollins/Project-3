@@ -61,10 +61,27 @@ def count_hit_ships(board):
 
 create_ships(HIDDEN_BOARD) 
 turns = 10
-print_board(HIDDEN_BOARD)
 
 while turns > 0: 
     print('Greetings Commander. The world Naval Alliance needs your help!')
     print_board(GUESS_BOARD)
+    row, column = get_ship_location()
+    if GUESS_BOARD[row][column] == '-':
+        print('You have already bombed that co-ordinate')
+    elif HIDDEN_BOARD[row][column] == 'X':
+        print('You have struck one of the invaders ships! Well done commander')
+        UESS_BOARD[row][column] = 'X'
+        turns -= 1 
+    else:
+        print('No casualties there commander, a miss!')
+        GUESS_BOARD[row][column] = '-'
+        turns -= 1
+    if count_hit_ships(GUESS_BOARD) == 5:
+        print('Congrats, you have saved the earth!')
+        break
+    print('You have' + str(turns) + ' turns remaining')
+    if turns == 0:
+        print('The aliens have landed, commander. We have failed!')
+        break 
 
 #while turns > 0:
