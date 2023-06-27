@@ -22,7 +22,7 @@ HIDDEN_BOARD = [[' '] * 8 for x in range (board_size)]
 GUESS_BOARD = [[' '] * 8 for x in range (board_size)] 
 
 #Convert guess letter string to int 
-letters_to_numbers = {'A':0, 'B':1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8 }
+letters_to_numbers = {'A':0, 'B':1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7 }
 
 #Function for the creation of the board 
 def print_board(board):
@@ -50,15 +50,25 @@ def create_ships(board):
 
 #Player Enters a location to hit a ship 
 def get_ship_location():
-        row = input('Please enter a ship row numbered 1-8:\n')
-        while row not in '12345678':
-            print('Please enter a valid row') 
+    while True:
+        try:
             row = input('Please enter a ship row numbered 1-8:\n')
-        column = input('Please enter a ship column A-H:\n').upper()
-        while column not in 'ABCDEFGH':
-            print('Please enter a valid column')
+            if not row:
+                raise ValueError("Row number is required")
+            row = int(row)  # Convert input to integer
+            if row not in range(1, 9):
+                raise ValueError("Invalid row number")
+
             column = input('Please enter a ship column A-H:\n').upper()
-        return int(row) - 1, letters_to_numbers[column]
+            if not column:
+                raise ValueError("Column letter is required")
+            if column not in 'ABCDEFGH':
+                raise ValueError("Invalid column letter")
+
+            return row - 1, letters_to_numbers[column]
+
+        except ValueError as e:
+            print("Invalid input:", e)
 
 def count_hit_ships(board):
     count = 0
