@@ -10,6 +10,27 @@
 
 #For random int
 from random import randint 
+boat = """
+              |    |    |                 
+             )_)  )_)  )_)              
+            )___))___))___)\            
+           )____)____)_____)\\
+         _____|____|____|____\\\__
+---------\                   /---------
+  ^^^^^ ^^^^^^^^^^^^^^^^^^^^^
+    ^^^^      ^^^^     ^^^    ^^
+         ^^^^      ^^^
+"""
+
+title = """
+______   ___   _____  _____  _      _____  _   _  _____ ______  _____ 
+| ___ \ / _ \ |_   _||_   _|| |    /  ___|| | | ||_   _|| ___ \/  ___|
+| |_/ // /_\ \  | |    | |  | |    \ `--. | |_| |  | |  | |_/ /\ `--. 
+| ___ \|  _  |  | |    | |  | |     `--. \|  _  |  | |  |  __/  `--. \
+| |_/ /| | | |  | |    | |  | |____/\__/ /| | | | _| |_ | |    /\__/ /
+\____/ \_| |_/  \_/    \_/  \_____/\____/ \_| |_/ \___/ \_|    \____/ 
+                                                                      
+"""
 
 #Variable for board size 
 
@@ -85,8 +106,11 @@ turns = 10
 
 #Game Loop 
 while turns > 0: 
-    if turns == 10: 
-        print('Greetings Commander. The world Naval Alliance needs your help!\n Aliens are invading and you need to blow em up.')
+    if turns == 10:
+        print(title)
+        print(boat)
+        name = input("Greetings Commander. What is your name?\n") 
+        print(f'Greetings Commander {name}. The world Naval Alliance needs your help!\n Aliens are invading and you need to blow em up.')
     print_board(GUESS_BOARD)
     row, column = get_ship_location()
     if GUESS_BOARD[row][column] == '-':
@@ -102,6 +126,7 @@ while turns > 0:
     if count_hit_ships(GUESS_BOARD) == 5:
         print('Congrats, you have saved the earth!')
         break
+        #Play again Option in here 
     print('You have ' + str(turns) + ' turns remaining')
     if turns == 0:
         print('The aliens have landed, commander. We have failed!')
