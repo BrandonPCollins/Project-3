@@ -99,36 +99,52 @@ def count_hit_ships(board):
                 count += 1 
     return count 
 
-create_ships(HIDDEN_BOARD) 
-print_board(HIDDEN_BOARD)
-turns = 10
 
 
 #Game Loop 
-while turns > 0: 
-    if turns == 10:
-        print(title)
-        print(boat)
-        name = input("Greetings Commander. What is your name?\n") 
-        print(f'Greetings Commander {name}. The world Naval Alliance needs your help!\nAliens are invading and you need to blow em up.\nIronically this takes the form of a game of battleships. What are the chances?!')
-    print_board(GUESS_BOARD)
-    row, column = get_ship_location()
-    if GUESS_BOARD[row][column] == '-':
-        print('You have already bombed that co-ordinate')
-    elif HIDDEN_BOARD[row][column] == 'X':
-        print('You have struck one of the invaders ships! Well done commander')
-        GUESS_BOARD[row][column] = 'X'
-        turns -= 1 
-    else:
-        print('No casualties there commander, a miss!')
-        GUESS_BOARD[row][column] = '-'
-        turns -= 1
-    if count_hit_ships(GUESS_BOARD) == 5:
-        print('Congrats, you have saved the earth!')
-        break
-        #Play again Option in here 
-    print('You have ' + str(turns) + ' turns remaining')
-    if turns == 0:
-        print('The aliens have landed, commander. We have failed!')
-        break 
+def playgame():
+    create_ships(HIDDEN_BOARD) 
+    print_board(HIDDEN_BOARD)
 
+    turns = 10
+
+    while turns > 0: 
+        if turns == 10:
+            print(title)
+            print(boat)
+            name = input("Greetings Commander. What is your name?\n") 
+            print(f'Greetings Commander {name}. The world Naval Alliance needs your help!\nAliens are invading and you need to blow em up.\nIronically this takes the form of a game of battleships. What are the chances?!')
+        print_board(GUESS_BOARD)
+        row, column = get_ship_location()
+        if GUESS_BOARD[row][column] == '-':
+            print('You have already bombed that co-ordinate')
+        elif HIDDEN_BOARD[row][column] == 'X':
+            print('You have struck one of the invaders ships! Well done commander')
+            GUESS_BOARD[row][column] = 'X'
+            turns -= 1 
+        else:
+            print('No casualties there commander, a miss!')
+            GUESS_BOARD[row][column] = '-'
+            turns -= 1
+        if count_hit_ships(GUESS_BOARD) == 5:
+            print('Congrats, you have saved the earth!')
+            play_again = input('Do you want to play again? (y/n):\n')
+            if play_again.lower() != "y":
+                print("Then take a well deserved vacation, commander.")
+                break
+            elif play_again.lower() == "y":
+                playgame()
+            break 
+            #Play again Option in here 
+        print('You have ' + str(turns) + ' turns remaining')
+        if turns == 0:
+            print('The aliens have landed, commander. We have failed!')
+            play_again = input('Do you want to play again? (y/n):\n')
+            if play_again.lower() != "y":
+                print("Then the earth is doomed...")
+                break
+            elif play_again.lower() == "y":
+                playgame()
+            break 
+
+playgame()
