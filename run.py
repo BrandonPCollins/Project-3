@@ -39,8 +39,6 @@ board_size = 8
 #For the Ships 
 HIDDEN_BOARD = [[' '] * 8 for x in range (board_size)] 
 
-#For Guessing
-GUESS_BOARD = [[' '] * 8 for x in range (board_size)] 
 
 #Convert guess letter string to int 
 letters_to_numbers = {'A':0, 'B':1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7 }
@@ -103,8 +101,11 @@ def count_hit_ships(board):
 
 #Game Loop 
 def playgame():
+    #For Guessing - Moved here for when the player resets the game so it doesn't use the same guess board each game 
+    GUESS_BOARD = [[' '] * 8 for x in range (board_size)] 
+
     create_ships(HIDDEN_BOARD) 
-    print_board(HIDDEN_BOARD)
+    print_board(HIDDEN_BOARD) #Temporary 
 
     turns = 10
 
