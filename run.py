@@ -110,7 +110,7 @@ while turns > 0:
         print(title)
         print(boat)
         name = input("Greetings Commander. What is your name?\n") 
-        print(f'Greetings Commander {name}. The world Naval Alliance needs your help!\n Aliens are invading and you need to blow em up.')
+        print(f'Greetings Commander {name}. The world Naval Alliance needs your help!\nAliens are invading and you need to blow em up.\nIronically this takes the form of a game of battleships. What are the chances?!')
     print_board(GUESS_BOARD)
     row, column = get_ship_location()
     if GUESS_BOARD[row][column] == '-':
