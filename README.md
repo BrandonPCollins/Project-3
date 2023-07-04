@@ -6,6 +6,9 @@ This is the Code Institute student template for deploying your third portfolio p
 
 # Project 3 - Battleships 
 
+![image](https://github.com/BrandonPCollins/Project-3/assets/131177569/1f99f1d0-9777-488e-a794-954c3ee3d006)
+
+
 https://project-3-3f38e4872683.herokuapp.com/ 
 
 ## Reminders
