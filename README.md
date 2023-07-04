@@ -4,6 +4,10 @@ Welcome USER_NAME,
 
 This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
 
+# Project 3 - Battleships 
+
+https://project-3-3f38e4872683.herokuapp.com/ 
+
 ## Reminders
 
 * Your code must be placed in the `run.py` file
