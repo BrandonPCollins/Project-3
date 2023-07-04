@@ -109,11 +109,19 @@ def playgame():
 
     turns = 10
 
+    name = ""
+
     while turns > 0: 
         if turns == 10:
             print(title)
             print(boat)
-            name = input("Greetings Commander. What is your name?\n") 
+
+            #Name loop
+            while not name.strip():
+                name = input("Greetings Commander. What is your name?\n") 
+                if not name.strip():
+                    print("Please enter a valid name!")
+            
             print(f'Greetings Commander {name}. The world Naval Alliance needs your help!\nAliens are invading and you need to blow em up.\nIronically this takes the form of a game of battleships. What are the chances?!')
         print_board(GUESS_BOARD)
         row, column = get_ship_location()
