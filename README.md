@@ -11,6 +11,20 @@ This is the Code Institute student template for deploying your third portfolio p
 
 https://project-3-3f38e4872683.herokuapp.com/ 
 
+## How to Play 
+
+## Features
+
+## Data Model? 
+
+## Testing
+
+## Bugs
+
+## Deployment
+
+## Credits 
+
 ## Reminders
 
 * Your code must be placed in the `run.py` file
