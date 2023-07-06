@@ -1,18 +1,10 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
-
-#X = placing ship and hit battleship
-
-#' ' for available space
-
-#'-' for missed shot 
-
 #For random int
 from random import randint 
+from enum import Enum
 
 
-boat = """
+
+BOAT = """
               |    |    |                 
              )_)  )_)  )_)              
             )___))___))___)\            
@@ -24,7 +16,7 @@ boat = """
          ^^^^      ^^^
 """
 
-title = """
+TITLE = """
 ______   ___   _____  _____  _      _____  _   _  _____ ______  _____ 
 | ___ \ / _ \ |_   _||_   _|| |    /  ___|| | | ||_   _|| ___ \/  ___|
 | |_/ // /_\ \  | |    | |  | |    \ `--. | |_| |  | |  | |_/ /\ `--. 
@@ -38,15 +30,21 @@ ______   ___   _____  _____  _      _____  _   _  _____ ______  _____
 
 board_size = 8 
 
-#For the Ships 
+class Symbols(Enum):
+    HIT = 'X'
+    MISS = '-'
+
+#The background board 
 HIDDEN_BOARD = [[' '] * 8 for x in range (board_size)] 
 
 
 #Convert guess letter string to int 
 letters_to_numbers = {'A':0, 'B':1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7 }
 
-#Function for the creation of the board 
 def print_board(board):
+    """
+    Creates the game board
+    """
     print('  A B C D E F G H')
     print('  - - - - - - - - ')
     row_number = 1
@@ -57,10 +55,13 @@ def print_board(board):
     print('  - - - - - - - - ')
 
 #Variable for number of ships
-num_of_ships = 5  
+num_of_ships = 5 
 
 #Places ships on the board on game start 
 def create_ships(board):
+    """
+    Places the ships on the board, takes the board as argument 
+    """
     for ship in range(num_of_ships):
         ship_row, ship_column = randint(0,7), randint(0,7) 
         while board[ship_row][ship_column] == 'X':
@@ -68,10 +69,10 @@ def create_ships(board):
         board[ship_row][ship_column] = 'X'
 
 
-#Do a try and except on these later to prevent crashing!!! 
-
-#Player Enters a location to hit a ship 
 def get_ship_location():
+    """
+    Function for the players entering the location of a ship to hit 
+    """
     while True:
         try:
             row = input('Please enter a ship row numbered 1-8:\n')
@@ -80,7 +81,11 @@ def get_ship_location():
             row = int(row)  # Convert input to integer
             if row not in range(1, 9):
                 raise ValueError("Invalid row number")
-
+            
+        except ValueError as e:
+            print("Invalid input:", e)
+        
+        try:
             column = input('Please enter a ship column A-H:\n').upper()
             if not column:
                 raise ValueError("Column letter is required")
@@ -101,9 +106,11 @@ def count_hit_ships(board):
     return count 
 
 
-
-#Game Loop 
 def playgame():
+    """
+    The central loop of the game 
+    """
+
     #For Guessing - Moved here for when the player resets the game so it doesn't use the same guess board each game 
     GUESS_BOARD = [[' '] * 8 for x in range (board_size)] 
 
@@ -116,8 +123,8 @@ def playgame():
 
     while turns > 0: 
         if turns == 10:
-            print(title)
-            print(boat)
+            print(TITLE)
+            print(BOAT)
 
             #Name loop
             while not name.strip():
@@ -142,23 +149,25 @@ def playgame():
             turns -= 1
         if count_hit_ships(GUESS_BOARD) == 5:
             print('Congrats, you have saved the earth!')
-            play_again = input('Do you want to play again? (y/n):\n')
-            if play_again.lower() != "y":
+            play_again = input('Do you want to play again? (y/n):\n').lower()
+            if play_again!= "y":
                 print("Then take a well deserved vacation, commander.")
                 break
-            elif play_again.lower() == "y":
+            elif play_again == "y":
                 playgame()
             break 
             #Play again Option in here 
         print('You have ' + str(turns) + ' turns remaining')
         if turns == 0:
             print('The aliens have landed, commander. We have failed!')
-            play_again = input('Do you want to play again? (y/n):\n')
-            if play_again.lower() != "y":
+            play_again = input('Do you want to play again? (y/n):\n').lower()
+            if play_again != "y":
                 print("Then the earth is doomed...")
                 break
-            elif play_again.lower() == "y":
+            elif play_again == "y":
                 playgame()
             break 
 
 playgame()
+
+#print(Symbols.HIT.value)
