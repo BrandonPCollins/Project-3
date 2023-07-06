@@ -10,6 +10,8 @@
 
 #For random int
 from random import randint 
+
+
 boat = """
               |    |    |                 
              )_)  )_)  )_)              
@@ -45,13 +47,14 @@ letters_to_numbers = {'A':0, 'B':1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7 }
 
 #Function for the creation of the board 
 def print_board(board):
-    print(' A B C D E F G H')
-    print(' - - - - - - - - ')
+    print('  A B C D E F G H')
+    print('  - - - - - - - - ')
     row_number = 1
     for row in board:
-        print("%d|%s" % (row_number, "|".join(row)))
+        formatted_row = [f'\033[91m{cell}\033[0m' if cell == 'X' else cell for cell in row]
+        print(f'{row_number}|{"|".join(formatted_row)}|')
         row_number += 1
-    print(' - - - - - - - - ')
+    print('  - - - - - - - - ')
 
 #Variable for number of ships
 num_of_ships = 5  
