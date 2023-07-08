@@ -13,6 +13,8 @@ https://project-3-3f38e4872683.herokuapp.com/
 
 ## How to Play 
 
+My Python project is based on the classic Pen and Paper game Battleships.
+
 ## Features
 
 ### Future Features 
