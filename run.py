@@ -141,12 +141,12 @@ def playgame():
 
     print_board(HIDDEN_BOARD) #Temporary 
 
-    turns = 10
+    turns = 15
 
     name = ""
 
     while turns > 0: 
-        if turns == 10:
+        if turns == 15:
             print(TITLE)
             print(BOAT)
 
