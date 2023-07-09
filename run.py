@@ -55,20 +55,28 @@ def print_board(board):
 #Variable for number of ships
 num_of_ships = 5 
 
-#Places ships on the board on game start 
 def create_ships(board):
     """
     Clears the board and places new ships on it. Takes board as argument 
+    Enemy Ships as X, Player ships as O 
     """
     for row in range(board_size):
         for column in range(board_size):
             board[row][column] = ' '  # Clear the board
     
-    for ship in range(num_of_ships):
-        ship_row, ship_column = randint(0, 7), randint(0, 7) 
-        while board[ship_row][ship_column] == 'X':
-            ship_row, ship_column = randint(0, 7), randint(0, 7)
-        board[ship_row][ship_column] = 'X'
+    if board == HIDDEN_BOARD:
+        for ship in range(num_of_ships):
+            ship_row, ship_column = randint(0, 7), randint(0, 7) 
+            while board[ship_row][ship_column] == 'X':
+                ship_row, ship_column = randint(0, 7), randint(0, 7)
+            board[ship_row][ship_column] = 'X'
+    
+    if board == PLAYER_BOARD:
+        for ship in range(num_of_ships):
+            ship_row, ship_column = randint(0, 7), randint(0, 7) 
+            while board[ship_row][ship_column] == 'O':
+                ship_row, ship_column = randint(0, 7), randint(0, 7)
+            board[ship_row][ship_column] = 'O'
 
 def get_ship_location():
     """
@@ -189,7 +197,7 @@ def playgame():
         ai_row, ai_column = ai_guess()
         if PLAYER_BOARD[ai_row][ai_column] == '-':
             print('The aliens have already bombed that coordinate')
-        elif PLAYER_BOARD[ai_row][ai_column] == 'X':
+        elif PLAYER_BOARD[ai_row][ai_column] == 'O':
             print('The aliens have struck one of your ships! Beware, commander')
             PLAYER_BOARD[ai_row][ai_column] = 'X'
         else:
