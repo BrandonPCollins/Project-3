@@ -58,14 +58,17 @@ num_of_ships = 5
 #Places ships on the board on game start 
 def create_ships(board):
     """
-    Places the ships on the board, takes the board as argument 
+    Clears the board and places new ships on it. Takes board as argument 
     """
+    for row in range(board_size):
+        for column in range(board_size):
+            board[row][column] = ' '  # Clear the board
+    
     for ship in range(num_of_ships):
-        ship_row, ship_column = randint(0,7), randint(0,7) 
+        ship_row, ship_column = randint(0, 7), randint(0, 7) 
         while board[ship_row][ship_column] == 'X':
-            ship_row, ship_column = randint(0,7), randint(0,7)
+            ship_row, ship_column = randint(0, 7), randint(0, 7)
         board[ship_row][ship_column] = 'X'
-
 
 def get_ship_location():
     """
