@@ -47,7 +47,14 @@ def print_board(board):
     print('  - - - - - - - - ')
     row_number = 1
     for row in board:
-        formatted_row = [f'\033[91m{cell}\033[0m' if cell == 'X' else cell for cell in row]
+        formatted_row = []
+        for cell in row:
+            if cell == 'X':
+                formatted_row.append('\033[91mX\033[0m')  # Red color for "X"
+            elif cell == 'O':
+                formatted_row.append('\033[94mO\033[0m')  # Blue color for "O"
+            else:
+                formatted_row.append(cell)
         print(f'{row_number}|{"|".join(formatted_row)}|')
         row_number += 1
     print('  - - - - - - - - ')
