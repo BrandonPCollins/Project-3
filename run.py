@@ -1,7 +1,5 @@
 #For random int
 from random import randint 
-from enum import Enum
-
 
 
 BOAT = """
@@ -30,12 +28,12 @@ ______   ___   _____  _____  _      _____  _   _  _____ ______  _____
 
 board_size = 8 
 
-class Symbols(Enum):
-    HIT = 'X'
-    MISS = '-'
+#The background board where the enemy ships are hidden  
+HIDDEN_BOARD = [[' '] * 8 for x in range (board_size)]
 
-#The background board 
-HIDDEN_BOARD = [[' '] * 8 for x in range (board_size)] 
+#Player's Board
+PLAYER_BOARD = [[' '] * 8 for _ in range(board_size)]
+
 
 
 #Convert guess letter string to int 
@@ -105,6 +103,16 @@ def count_hit_ships(board):
                 count += 1 
     return count 
 
+def ai_guess():
+    """
+    Generates the AI's guess for the player's ships.
+    """
+    while True:
+        row = randint(0, 7)
+        column = randint(0, 7)
+        if PLAYER_BOARD[row][column] != '-' and PLAYER_BOARD[row][column] != 'X':
+            return row, column
+
 
 def playgame():
     """
@@ -136,6 +144,13 @@ def playgame():
                   'Aliens are invading and you need to blow em up.\n'
                   'Ironically this takes the form of a game of battleships. What are the chances?!')
         print_board(GUESS_BOARD)
+
+        
+        create_ships(PLAYER_BOARD)
+        print("Your Ships")
+        print_board(PLAYER_BOARD)
+
+
         row, column = get_ship_location()
         if GUESS_BOARD[row][column] == '-':
             print('You have already bombed that co-ordinate')
@@ -167,6 +182,28 @@ def playgame():
             elif play_again == "y":
                 playgame()
             break 
+
+        
+        # AI's turn
+        ai_row, ai_column = ai_guess()
+        if PLAYER_BOARD[ai_row][ai_column] == '-':
+            print('The aliens have already bombed that coordinate')
+        elif HIDDEN_BOARD[ai_row][ai_column] == 'X':
+            print('The aliens have struck one of your ships! Beware, commander')
+            PLAYER_BOARD[ai_row][ai_column] = 'X'
+        else:
+            print('The aliens missed their shot, commander!')
+            PLAYER_BOARD[ai_row][ai_column] = '-'
+
+        if count_hit_ships(PLAYER_BOARD) == 5:
+            print('Oh no, the aliens have destroyed all your ships! The earth is doomed!')
+            play_again = input('Do you want to play again? (y/n):\n').lower()
+            if play_again != "y":
+                print("Then the earth is lost...")
+                break
+            elif play_again == "y":
+                playgame()
+            break
 
 playgame()
 
