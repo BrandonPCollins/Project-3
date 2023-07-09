@@ -101,8 +101,8 @@ def get_ship_location():
             column = input('Please enter a ship column A-H:\n').upper()
             if not column:
                 raise ValueError("Column letter is required")
-            if column not in 'ABCDEFGH':
-                raise ValueError("Invalid column letter")
+            if len(column) != 2 or column[0] not in 'ABCDEFGH' or column[1] not in '12345678':
+                raise ValueError("Invalid column value")
 
             return row - 1, letters_to_numbers[column]
 
