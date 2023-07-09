@@ -29,15 +29,17 @@ I had several "player-testers" engage with the Heroku hosted app prior to the fi
 
 There were several bugs battled during the implementation of this project, particularly related to the rudimentary AI.
 
+There was an error 
+![image](https://github.com/BrandonPCollins/Project-3/assets/131177569/8b52da87-6039-4c9c-97bf-0b6bffae9b49)
+
+
 ## Deployment
 
 The project was deployed on Heroku using the mock terminal provided by Code Institute.
 
 ## Credits 
 
-
-
-
+The [How to Code Battleships in Python](https://www.youtube.com/watch?v=tF1WRCrd_HQ) by Knowledge Mavens on youtube was instrumental in giving my initial code the basis to build on. 
 
 
 ## Reminders
