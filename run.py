@@ -123,6 +123,9 @@ def playgame():
     GUESS_BOARD = [[' '] * 8 for x in range (board_size)] 
 
     create_ships(HIDDEN_BOARD) 
+
+    create_ships(PLAYER_BOARD)
+
     print_board(HIDDEN_BOARD) #Temporary 
 
     turns = 10
@@ -144,9 +147,7 @@ def playgame():
                   'Aliens are invading and you need to blow em up.\n'
                   'Ironically this takes the form of a game of battleships. What are the chances?!')
         print_board(GUESS_BOARD)
-
         
-        create_ships(PLAYER_BOARD)
         print("Your Ships")
         print_board(PLAYER_BOARD)
 
