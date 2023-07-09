@@ -79,11 +79,7 @@ def get_ship_location():
             row = int(row)  # Convert input to integer
             if row not in range(1, 9):
                 raise ValueError("Invalid row number")
-            
-        except ValueError as e:
-            print("Invalid input:", e)
-        
-        try:
+
             column = input('Please enter a ship column A-H:\n').upper()
             if not column:
                 raise ValueError("Column letter is required")
@@ -112,7 +108,6 @@ def ai_guess():
         column = randint(0, 7)
         if PLAYER_BOARD[row][column] != '-' and PLAYER_BOARD[row][column] != 'X':
             return row, column
-
 
 def playgame():
     """
@@ -146,9 +141,11 @@ def playgame():
             print(f'Greetings Commander {name}. The world Naval Alliance needs your help!\n'
                   'Aliens are invading and you need to blow em up.\n'
                   'Ironically this takes the form of a game of battleships. What are the chances?!')
+        
+        print("   Alien Ships")
         print_board(GUESS_BOARD)
         
-        print("Your Ships")
+        print("   Your Ships")
         print_board(PLAYER_BOARD)
 
 
@@ -189,7 +186,7 @@ def playgame():
         ai_row, ai_column = ai_guess()
         if PLAYER_BOARD[ai_row][ai_column] == '-':
             print('The aliens have already bombed that coordinate')
-        elif HIDDEN_BOARD[ai_row][ai_column] == 'X':
+        elif PLAYER_BOARD[ai_row][ai_column] == 'X':
             print('The aliens have struck one of your ships! Beware, commander')
             PLAYER_BOARD[ai_row][ai_column] = 'X'
         else:
