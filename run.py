@@ -100,8 +100,8 @@ def count_hit_ships(board):
     for row in board:
         for column in row:
             if column == 'X':
-                count += 1
-    return count
+                count += 1 
+    return count 
 
 def ai_guess():
     """
@@ -123,8 +123,6 @@ def playgame():
     GUESS_BOARD = [[' '] * 8 for x in range (board_size)] 
 
     create_ships(HIDDEN_BOARD) 
-    create_ships(PLAYER_BOARD)
-
     print_board(HIDDEN_BOARD) #Temporary 
 
     turns = 10
@@ -145,11 +143,10 @@ def playgame():
             print(f'Greetings Commander {name}. The world Naval Alliance needs your help!\n'
                   'Aliens are invading and you need to blow em up.\n'
                   'Ironically this takes the form of a game of battleships. What are the chances?!')
-            
-            
         print_board(GUESS_BOARD)
 
         
+        create_ships(PLAYER_BOARD)
         print("Your Ships")
         print_board(PLAYER_BOARD)
 
@@ -165,7 +162,6 @@ def playgame():
             print('No casualties there commander, a miss!')
             GUESS_BOARD[row][column] = '-'
             turns -= 1
-
         if count_hit_ships(GUESS_BOARD) == 5:
             print('Congrats, you have saved the earth!')
             play_again = input('Do you want to play again? (y/n):\n').lower()
@@ -192,7 +188,7 @@ def playgame():
         ai_row, ai_column = ai_guess()
         if PLAYER_BOARD[ai_row][ai_column] == '-':
             print('The aliens have already bombed that coordinate')
-        elif PLAYER_BOARD[ai_row][ai_column] == 'X':
+        elif HIDDEN_BOARD[ai_row][ai_column] == 'X':
             print('The aliens have struck one of your ships! Beware, commander')
             PLAYER_BOARD[ai_row][ai_column] = 'X'
         else:
