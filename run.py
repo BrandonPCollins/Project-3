@@ -223,5 +223,3 @@ def playgame():
             break
 
 playgame()
-
-#print(Symbols.HIT.value)
