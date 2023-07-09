@@ -166,6 +166,7 @@ def playgame():
         print("   Your Ships")
         print_board(PLAYER_BOARD)
 
+        print('You have ' + str(turns) + ' turns remaining')
 
         row, column = get_ship_location()
         if GUESS_BOARD[row][column] == '-':
@@ -188,7 +189,7 @@ def playgame():
                 playgame()
             break 
             #Play again Option in here 
-        print('You have ' + str(turns) + ' turns remaining')
+
         if turns == 0:
             print('The aliens have landed, commander. We have failed!')
             play_again = input('Do you want to play again? (y/n):\n').lower()
