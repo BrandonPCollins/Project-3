@@ -27,6 +27,8 @@ My Python project is based on the classic Pen and Paper game Battleships.
 
 ## Deployment
 
+The project was deployed on Heroku using the mock terminal provided by Code Institute.
+
 ## Credits 
 
 
