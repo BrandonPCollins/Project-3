@@ -23,7 +23,11 @@ My Python project is based on the classic Pen and Paper game Battleships.
 
 ## Testing
 
+I had several "player-testers" engage with the Heroku hosted app prior to the final submission of the project. I received valuable feedback from them regarding mechanics and the UI of the game. Per their suggestions, I relocated the string informing the player how many turns was remaining in order to improve its visibility, while also increasing the number of turns available to the player. While a 10-turn time limit was more acceptable prior to the introduction of a competitive AI, with its implementation came the introduction of another failstate wherein the computer hits all the player's ships. Thus the turn count was increased to be more leniant on the first fail-state of time expiration to allow the player to have a greater opportunity of winning the game. 
+
 ## Bugs
+
+There were several bugs battled during the implementation of this project, particularly related to the rudimentary AI.
 
 ## Deployment
 
