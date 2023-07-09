@@ -19,11 +19,15 @@ My Python project is based on the classic Pen and Paper game Battleships.
 
 ### Future Features 
 
+* Allow the player to set the variables for board size and ship size.
+* Allow the player to place their ships manually rather than having them be placed randomly.
+* Allow for ships that are larger than 1x1 space, as in the Battleships board game.
+
 ## Data Model? 
 
 ## Testing
 
-I had several "player-testers" engage with the Heroku hosted app prior to the final submission of the project. I received valuable feedback from them regarding mechanics and the UI of the game. Per their suggestions, I relocated the string informing the player how many turns was remaining in order to improve its visibility, while also increasing the number of turns available to the player. While a 10-turn time limit was more acceptable prior to the introduction of a competitive AI, with its implementation came the introduction of another failstate wherein the computer hits all the player's ships. Thus the turn count was increased to be more leniant on the first fail-state of time expiration to allow the player to have a greater opportunity of winning the game. 
+I had several "play-testers" engage with the Heroku hosted app prior to the final submission of the project. I received valuable feedback from them regarding mechanics and the UI of the game. Per their suggestions, I relocated the string informing the player how many turns was remaining in order to improve its visibility, while also increasing the number of turns available to the player. While a 10-turn time limit was more acceptable prior to the introduction of a competitive AI, with its implementation came the introduction of another failstate wherein the computer hits all the player's ships. Thus the turn count was increased to be more leniant on the first fail-state of time expiration to allow the player to have a greater opportunity of winning the game. 
 
 ## Bugs
 
@@ -39,7 +43,9 @@ The project was deployed on Heroku using the mock terminal provided by Code Inst
 
 ## Credits 
 
-The [How to Code Battleships in Python](https://www.youtube.com/watch?v=tF1WRCrd_HQ) by Knowledge Mavens on youtube was instrumental in giving my initial code the basis to build on. 
+* The [How to Code Battleships in Python](https://www.youtube.com/watch?v=tF1WRCrd_HQ) by Knowledge Mavens on youtube was instrumental in giving my initial code the basis to build on. 
+
+* The Code Institute [Ultimate Battleships](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+PE_PAGPPF+2021_Q2/courseware/b3378fc1159e43e3b70916fdefdfae51/605f34e006594dc4ae19f5e60ec75e2e/) sample ReadMe for providing the idea for the project.
 
 
 ## Reminders
