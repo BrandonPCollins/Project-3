@@ -57,16 +57,24 @@ It also helpfully noted the massive amount of white space my code contained, whi
 
 There were several bugs battled during the implementation of this project, particularly related to the rudimentary AI.
 
-There was an error 
+* Error where entering multiple letters within the column letter range. Fixed by including a length check on the user input to not exceed a single character.
 ![image](https://github.com/BrandonPCollins/Project-3/assets/131177569/8b52da87-6039-4c9c-97bf-0b6bffae9b49)
 
+*Multiple logic path errors where the game would suddenly end after the first turn. Fixed by refactoring the AI turn logic.
+
+* Bug where if the player chose to play again the boards would remain the same, including guesses and hit ships. Fixed by adding a loop which clears the board to the create ships function.
 ## Known Bugs
 
-* Errors relating to the use of ASCII art and in-line comments. Has no effect upon the code's functionality.
+* Errors within the validator relating to the use of ASCII art and in-line comments. Has no effect upon the code's functionality.
 
 ## Deployment
 
 The project was deployed on Heroku using the mock terminal provided by Code Institute.
+
+* Using Heroku credits create a new Heroku App.
+* Set buildpack dependencies to Python and then NodeJS in the settings tab. They must be in this order.
+* Link the Heroku app to the github repository
+* Click **Deploy**
 
 ## Credits 
 
@@ -77,21 +85,3 @@ The project was deployed on Heroku using the mock terminal provided by Code Inst
 * Code Institute for providing the template for the deployment terminal.
 
 * Wikipedia's page for reference on the Battleship game.
-
-
-
-
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
