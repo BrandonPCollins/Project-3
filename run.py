@@ -1,11 +1,10 @@
-#For random int
-from random import randint 
+from random import randint
 
 
 BOAT = """
-              |    |    |                 
-             )_)  )_)  )_)              
-            )___))___))___)\            
+              |    |    |        
+             )_)  )_)  )_)
+            )___))___))___)\
            )____)____)_____)\\
          _____|____|____|____\\\__
 ---------\                   /---------
@@ -24,7 +23,7 @@ ______   ___   _____  _____  _      _____  _   _  _____ ______  _____
                                                                       
 """
 
-#Variable for board size 
+#Variable for board size
 
 board_size = 8 
 
@@ -199,7 +198,7 @@ def playgame():
             elif play_again == "y":
                 playgame()
             break 
-            #Play again Option in here 
+            #Play again Option in here
 
         if turns == 0:
             alien_wins += 1
@@ -212,7 +211,6 @@ def playgame():
             elif play_again == "y":
                 playgame()
             break 
-
         
         # AI's turn
         ai_row, ai_column = ai_guess()
