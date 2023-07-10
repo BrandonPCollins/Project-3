@@ -12,11 +12,11 @@ The game presented here is a single-player guessing game presented under the con
 
 Random board generation for both the player and the opposing AI. 
 
-** Player's ships are demarcated with a blue 'O'
+* Player's ships are demarcated with a blue 'O'
 
-** Hit ships are denoted with a red 'X'
+* Hit ships are denoted with a red 'X'
 
-** Missed hits are shown via a '-'
+* Missed hits are shown via a '-'
 
 ![image](https://github.com/BrandonPCollins/Project-3/assets/131177569/fa41ec78-7104-4ca9-8b1d-a0492ddf54c2)
 
