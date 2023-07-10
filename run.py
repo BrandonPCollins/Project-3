@@ -4,7 +4,7 @@ from random import randint
 BOAT = """
               |    |    |
              )_)  )_)  )_)
-            )___))___))___)\
+            )___))___))___)\        
            )____)____)_____)\\
          _____|____|____|____\\\__
 ---------\                   /---------
@@ -200,8 +200,8 @@ def playgame():
         if turns == 0:
             alien_wins += 1
             print('The aliens have landed, commander. We have failed!')
-            print(f'You have defeated the aliens {player_wins} time(s).
-                  The aliens have won {alien_wins} time(s).')
+            print(f'You have defeated the aliens {player_wins} time(s).'
+                  'The aliens have won {alien_wins} time(s).')
             play_again = input('Do you want to play again? (y/n):\n').lower()
             if play_again != "y":
                 print("Then the earth is doomed...")
