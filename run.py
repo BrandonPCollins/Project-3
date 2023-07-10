@@ -2,7 +2,7 @@ from random import randint
 
 
 BOAT = """
-              |    |    |        
+              |    |    |
              )_)  )_)  )_)
             )___))___))___)\
            )____)____)_____)\\
@@ -14,36 +14,33 @@ BOAT = """
 """
 
 TITLE = """
-______   ___   _____  _____  _      _____  _   _  _____ ______  _____ 
+______   ___   _____  _____  _      _____  _   _  _____ ______  _____
 | ___ \ / _ \ |_   _||_   _|| |    /  ___|| | | ||_   _|| ___ \/  ___|
-| |_/ // /_\ \  | |    | |  | |    \ `--. | |_| |  | |  | |_/ /\ `--. 
-| ___ \|  _  |  | |    | |  | |     `--. \|  _  |  | |  |  __/  `--. | 
+| |_/ // /_\ \  | |    | |  | |    \ `--. | |_| |  | |  | |_/ /\ `--.
+| ___ \|  _  |  | |    | |  | |     `--. \|  _  |  | |  |  __/  `--. |
 | |_/ /| | | |  | |    | |  | |____/\__/ /| | | | _| |_ | |    /\__/ /
-\____/ \_| |_/  \_/    \_/  \_____/\____/ \_| |_/ \___/ \_|    \____/ 
-                                                                      
+\____/ \_| |_/  \_/    \_/  \_____/\____/ \_| |_/ \___/ \_|    \____/
+
 """
 
 #Variable for board size
 
-board_size = 8 
+board_size = 8
 
 #Tracking win scores
 
 player_wins = 0
 
-alien_wins = 0 
+alien_wins = 0
 
-
-#The background board where the enemy ships are hidden  
+#The background board where the enemy ships are hidden
 HIDDEN_BOARD = [[' '] * 8 for x in range (board_size)]
 
 #Player's Board
 PLAYER_BOARD = [[' '] * 8 for _ in range(board_size)]
 
-
-
-#Convert guess letter string to int 
-letters_to_numbers = {'A':0, 'B':1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7 }
+#Convert guess letter string to int
+letters_to_numbers = {'A':0, 'B':1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7}
 
 def print_board(board):
     """
@@ -66,34 +63,34 @@ def print_board(board):
     print('  - - - - - - - - ')
 
 #Variable for number of ships
-num_of_ships = 5 
+num_of_ships = 5
 
 def create_ships(board):
     """
-    Clears the board and places new ships on it. Takes board as argument 
-    Enemy Ships as X, Player ships as O 
+    Clears the board and places new ships on it. Takes board as argument
+    Enemy Ships as X, Player ships as O
     """
     for row in range(board_size):
         for column in range(board_size):
             board[row][column] = ' '  # Clear the board
-    
+
     if board == HIDDEN_BOARD:
         for ship in range(num_of_ships):
-            ship_row, ship_column = randint(0, 7), randint(0, 7) 
+            ship_row, ship_column = randint(0, 7), randint(0, 7)
             while board[ship_row][ship_column] == 'X':
                 ship_row, ship_column = randint(0, 7), randint(0, 7)
             board[ship_row][ship_column] = 'X'
-    
+
     if board == PLAYER_BOARD:
         for ship in range(num_of_ships):
-            ship_row, ship_column = randint(0, 7), randint(0, 7) 
+            ship_row, ship_column = randint(0, 7), randint(0, 7)
             while board[ship_row][ship_column] == 'O':
                 ship_row, ship_column = randint(0, 7), randint(0, 7)
             board[ship_row][ship_column] = 'O'
 
 def get_ship_location():
     """
-    Function for the players entering the location of a ship to hit 
+    Function for the players entering the location of a ship to hit
     """
     while True:
         try:
@@ -120,8 +117,8 @@ def count_hit_ships(board):
     for row in board:
         for column in row:
             if column == 'X':
-                count += 1 
-    return count 
+                count += 1
+    return count
 
 def ai_guess():
     """
@@ -135,42 +132,42 @@ def ai_guess():
 
 def playgame():
     """
-    The central loop of the game 
+    The central loop of the game
     """
 
-    global player_wins, alien_wins  # Access the global win variables 
+    global player_wins, alien_wins  # Access the global win variables
 
-    #For Guessing - Moved here for when the player resets the game so it doesn't use the same guess board each game 
-    GUESS_BOARD = [[' '] * 8 for x in range (board_size)] 
+    #For Guessing - Moved here for when the player resets the game so it doesn't use the same guess board each game
+    GUESS_BOARD = [[' '] * 8 for x in range (board_size)]
 
-    create_ships(HIDDEN_BOARD) 
+    create_ships(HIDDEN_BOARD)
 
     create_ships(PLAYER_BOARD)
 
-    print_board(HIDDEN_BOARD) #Temporary 
+    print_board(HIDDEN_BOARD) #Temporary
 
     turns = 15
 
     name = ""
 
-    while turns > 0: 
+    while turns > 0:
         if turns == 15:
             print(TITLE)
             print(BOAT)
 
             #Name loop
             while not name.strip():
-                name = input("Greetings Commander. What is your name?\n") 
+                name = input("Greetings Commander. What is your name?\n")
                 if not name.strip():
                     print("Please enter a valid name!")
-            
+
             print(f'Greetings Commander {name}. The world Naval Alliance needs your help!\n'
                   'Aliens are invading and you need to blow em up.\n'
                   'Ironically this takes the form of a game of battleships. What are the chances?!')
-        
+
         print("   Alien Ships")
         print_board(GUESS_BOARD)
-        
+
         print("   Your Ships")
         print_board(PLAYER_BOARD)
 
@@ -182,13 +179,13 @@ def playgame():
         elif HIDDEN_BOARD[row][column] == 'X':
             print('You have struck one of the invaders ships! Well done commander')
             GUESS_BOARD[row][column] = 'X'
-            turns -= 1 
+            turns -= 1
         else:
             print('No casualties there commander, a miss!')
             GUESS_BOARD[row][column] = '-'
             turns -= 1
         if count_hit_ships(GUESS_BOARD) == 5:
-            player_wins += 1 
+            player_wins += 1
             print('Congrats, you have saved the earth!')
             print(f'You have defeated the aliens {player_wins} time(s). The aliens have won {alien_wins} time(s).')
             play_again = input('Do you want to play again? (y/n):\n').lower()
@@ -197,24 +194,25 @@ def playgame():
                 break
             elif play_again == "y":
                 playgame()
-            break 
+            break
             #Play again Option in here
 
         if turns == 0:
             alien_wins += 1
             print('The aliens have landed, commander. We have failed!')
-            print(f'You have defeated the aliens {player_wins} time(s). The aliens have won {alien_wins} time(s).')
+            print(f'You have defeated the aliens {player_wins} time(s).
+                  The aliens have won {alien_wins} time(s).')
             play_again = input('Do you want to play again? (y/n):\n').lower()
             if play_again != "y":
                 print("Then the earth is doomed...")
                 break
             elif play_again == "y":
                 playgame()
-            break 
-        
+            break
+
         # AI's turn
         ai_row, ai_column = ai_guess()
-        #Should not happen as preventd in ai_guess but just in case 
+        #Should not happen as preventd in ai_guess but just in case
         if PLAYER_BOARD[ai_row][ai_column] == '-':
             print('The aliens have already bombed that coordinate')
         elif PLAYER_BOARD[ai_row][ai_column] == 'O':
