@@ -28,6 +28,13 @@ ______   ___   _____  _____  _      _____  _   _  _____ ______  _____
 
 board_size = 8 
 
+#Tracking win scores
+
+player_wins = 0
+
+alien_wins = 0 
+
+
 #The background board where the enemy ships are hidden  
 HIDDEN_BOARD = [[' '] * 8 for x in range (board_size)]
 
@@ -132,6 +139,8 @@ def playgame():
     The central loop of the game 
     """
 
+    global player_wins, alien_wins  # Access the global win variables 
+
     #For Guessing - Moved here for when the player resets the game so it doesn't use the same guess board each game 
     GUESS_BOARD = [[' '] * 8 for x in range (board_size)] 
 
@@ -180,7 +189,9 @@ def playgame():
             GUESS_BOARD[row][column] = '-'
             turns -= 1
         if count_hit_ships(GUESS_BOARD) == 5:
+            player_wins += 1 
             print('Congrats, you have saved the earth!')
+            print(f'You have defeated the aliens {player_wins} time(s). The aliens have won {alien_wins} time(s).')
             play_again = input('Do you want to play again? (y/n):\n').lower()
             if play_again!= "y":
                 print("Then take a well deserved vacation, commander.")
@@ -191,7 +202,9 @@ def playgame():
             #Play again Option in here 
 
         if turns == 0:
+            alien_wins += 1
             print('The aliens have landed, commander. We have failed!')
+            print(f'You have defeated the aliens {player_wins} time(s). The aliens have won {alien_wins} time(s).')
             play_again = input('Do you want to play again? (y/n):\n').lower()
             if play_again != "y":
                 print("Then the earth is doomed...")
@@ -203,6 +216,7 @@ def playgame():
         
         # AI's turn
         ai_row, ai_column = ai_guess()
+        #Should not happen as preventd in ai_guess but just in case 
         if PLAYER_BOARD[ai_row][ai_column] == '-':
             print('The aliens have already bombed that coordinate')
         elif PLAYER_BOARD[ai_row][ai_column] == 'O':
@@ -214,6 +228,8 @@ def playgame():
 
         if count_hit_ships(PLAYER_BOARD) == 5:
             print('Oh no, the aliens have destroyed all your ships! The earth is doomed!')
+            alien_wins += 1
+            print('The aliens have landed, commander. We have failed!')
             play_again = input('Do you want to play again? (y/n):\n').lower()
             if play_again != "y":
                 print("Then the earth is lost...")
