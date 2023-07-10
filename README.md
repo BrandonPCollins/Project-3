@@ -10,6 +10,17 @@ The game presented here is a single-player guessing game presented under the con
 
 ## Features
 
+Random board generation for both the player and the opposing AI. 
+
+** Player's ships are demarcated with a blue 'O'
+
+** Hit ships are denoted with a red 'X'
+
+** Missed hits are shown via a '-'
+
+![image](https://github.com/BrandonPCollins/Project-3/assets/131177569/fa41ec78-7104-4ca9-8b1d-a0492ddf54c2)
+
+
 ### Future Features 
 
 * Allow the player to set the variables for board size and ship size.
@@ -41,12 +52,13 @@ The project was deployed on Heroku using the mock terminal provided by Code Inst
 
 * The Code Institute [Ultimate Battleships](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+PE_PAGPPF+2021_Q2/courseware/b3378fc1159e43e3b70916fdefdfae51/605f34e006594dc4ae19f5e60ec75e2e/) sample ReadMe for providing the idea for the project.
 
+* Code Institute for providing the template for the deployment terminal.
 
-## Reminders
+* Wikipedia's page for reference on the Battleship game.
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+
+
+
 
 ## Creating the Heroku app
 
@@ -61,9 +73,3 @@ If you have credentials, such as in the Love Sandwiches project, you must create
 
 Connect your GitHub repository and deploy as normal.
 
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
