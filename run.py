@@ -88,7 +88,7 @@ def create_ships(board):
                 ship_row, ship_column = randint(0, 7), randint(0, 7)
             board[ship_row][ship_column] = 'O'
 
-def get_ship_location():
+def get_ship_location(guess_board):
     """
     Function for the players entering the location of a ship to hit
     """
@@ -106,6 +106,9 @@ def get_ship_location():
                 raise ValueError("Column letter is required")
             if len(column) != 1 or column not in 'ABCDEFGH':
                 raise ValueError("Invalid column value")
+
+            if guess_board[row - 1][letters_to_numbers[column]] == '-' or guess_board[row - 1][letters_to_numbers[column]] == 'X':
+                raise ValueError("You have already bombed that coordinate")
 
             return row - 1, letters_to_numbers[column]
 
@@ -173,7 +176,7 @@ def playgame():
 
         print('You have ' + str(turns) + ' turns remaining')
 
-        row, column = get_ship_location()
+        row, column = get_ship_location(GUESS_BOARD)
         if GUESS_BOARD[row][column] == '-':
             print('You have already bombed that co-ordinate')
         elif HIDDEN_BOARD[row][column] == 'X':
@@ -201,7 +204,7 @@ def playgame():
             alien_wins += 1
             print('The aliens have landed, commander. We have failed!')
             print(f'You have defeated the aliens {player_wins} time(s).'
-                  'The aliens have won {alien_wins} time(s).')
+                  f'The aliens have won {alien_wins} time(s).')
             play_again = input('Do you want to play again? (y/n):\n').lower()
             if play_again != "y":
                 print("Then the earth is doomed...")
