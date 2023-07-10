@@ -65,6 +65,9 @@ There were several bugs battled during the implementation of this project, parti
 * Multiple logic path errors where the game would suddenly end after the first turn. Fixed by refactoring the AI turn logic.
 
 * Bug where if the player chose to play again the boards would remain the same, including guesses and hit ships. Fixed by adding a loop which clears the board to the create ships function.
+
+* Bug where if the player picked the same coordinates twice, the aliens would get a free turn. Fixed by incorporating a double pick into the get ships location function and preventing the game from proceeding by returning a value error until the player picked a new location.
+  
 ## Known Bugs
 
 * Errors within the validator relating to the use of ASCII art and in-line comments. Has no effect upon the code's functionality.
