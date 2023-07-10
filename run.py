@@ -1,5 +1,5 @@
 from random import randint
-
+import time 
 
 BOAT = """
               |    |    |
@@ -160,8 +160,10 @@ def playgame():
                     print("Please enter a valid name!")
 
             print(f'Greetings Commander {name}. The world Naval Alliance needs your help!\n'
-                  'Aliens are invading and you need to blow em up.\n'
-                  'Ironically this takes the form of a game of battleships. What are the chances?!')
+                  'Aliens are invading and you need to blow em up.\n')
+            time.sleep(1)
+            print('Ironically this takes the form of a game of battleships. What are the chances?!')
+            time.sleep(1)
 
         print("   Alien Ships")
         print_board(GUESS_BOARD)
@@ -208,6 +210,9 @@ def playgame():
                 playgame()
             break
 
+        print("Aliens turn...")
+        time.sleep(1)
+        
         # AI's turn
         ai_row, ai_column = ai_guess()
         #Should not happen as preventd in ai_guess but just in case
