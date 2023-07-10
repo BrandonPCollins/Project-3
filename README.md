@@ -51,7 +51,7 @@ I had several "play-testers" engage with the Heroku hosted app prior to the fina
 
 For my validator testing I made use of PEP8online.com. It returned various errors relating to the ASCII art and my use of # in-line comments, though I wasn't certain how to remedy those and they had no effect on the functionality of the code so they were acceptable. 
 
-It also helpfully noted the massive amount of white space my code contained, which I promptly removed. 
+It also helpfully noted the massive amount of white space my code contained, which I promptly removed via an auto-formatter. 
 
 ## Bugs
 
@@ -60,7 +60,7 @@ There were several bugs battled during the implementation of this project, parti
 * Error where entering multiple letters within the column letter range. Fixed by including a length check on the user input to not exceed a single character.
 ![image](https://github.com/BrandonPCollins/Project-3/assets/131177569/8b52da87-6039-4c9c-97bf-0b6bffae9b49)
 
-*Multiple logic path errors where the game would suddenly end after the first turn. Fixed by refactoring the AI turn logic.
+* Multiple logic path errors where the game would suddenly end after the first turn. Fixed by refactoring the AI turn logic.
 
 * Bug where if the player chose to play again the boards would remain the same, including guesses and hit ships. Fixed by adding a loop which clears the board to the create ships function.
 ## Known Bugs
