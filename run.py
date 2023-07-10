@@ -144,8 +144,6 @@ def playgame():
 
     create_ships(PLAYER_BOARD)
 
-    print_board(HIDDEN_BOARD) #Temporary
-
     turns = 15
 
     name = ""
