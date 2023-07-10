@@ -47,7 +47,11 @@ The boards are reprinted and updated at the conclusion of each turn cycle.
 
 ## Testing
 
-I had several "play-testers" engage with the Heroku hosted app prior to the final submission of the project. I received valuable feedback from them regarding mechanics and the UI of the game. Per their suggestions, I relocated the string informing the player how many turns was remaining in order to improve its visibility, while also increasing the number of turns available to the player. While a 10-turn time limit was more acceptable prior to the introduction of a competitive AI, with its implementation came the introduction of another failstate wherein the computer hits all the player's ships. Thus the turn count was increased to be more leniant on the first fail-state of time expiration to allow the player to have a greater opportunity of winning the game. 
+I had several "play-testers" engage with the Heroku hosted app prior to the final submission of the project. I received valuable feedback from them regarding the mechanics and the UI of the game. Per their suggestions, I relocated the string informing the player how many turns was remaining in order to improve its visibility, while also increasing the number of turns available to the player. While a 10-turn time limit was more acceptable before introducing a competitive AI, with its implementation came the introduction of another fail state wherein the computer hits all the player's ships. Thus the turn count was increased to be more lenient on the first fail-state of time expiration to allow the player to have a greater opportunity of winning the game. 
+
+For my validator testing I made use of PEP8online.com. It returned various errors relating to the ASCII art and my use of # in-line comments, though I wasn't certain how to remedy those and they had no effect on the functionality of the code so they were acceptable. 
+
+It also helpfully noted the massive amount of white space my code contained, which I promptly removed. 
 
 ## Bugs
 
@@ -56,6 +60,9 @@ There were several bugs battled during the implementation of this project, parti
 There was an error 
 ![image](https://github.com/BrandonPCollins/Project-3/assets/131177569/8b52da87-6039-4c9c-97bf-0b6bffae9b49)
 
+## Known Bugs
+
+* Errors relating to the use of ASCII art and in-line comments. Has no effect upon the code's functionality.
 
 ## Deployment
 
