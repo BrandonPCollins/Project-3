@@ -4,7 +4,7 @@
 
 My Python terminal project is a replication of the classic Pen and Paper game [Battleships](https://en.wikipedia.org/wiki/Battleship_(game)).
 
-The game presented here is a single-player guessing game presented under the conceit of an Alien Invasion. Matched against an AI opponent, the player must guess the location of all the AI's randomly placed Battleships before the AI can guess theirs. To add an extra layer of intensity, and to stop games from dragging, the player must complete this task within 15 turns, or lose. 
+The game presented here is a single-player guessing game presented under the conceit of an Alien Invasion. Matched against an AI opponent, the player must guess the location of all the AI's randomly placed Battleships before the AI can guess theirs. To add an extra layer of intensity, and to stop games from dragging on, the player must complete this task within 15 turns, or lose. 
 
 [The live version of my project can be found here](https://project-3-3f38e4872683.herokuapp.com/)
 
@@ -24,9 +24,9 @@ The game presented here is a single-player guessing game presented under the con
 
 * Input validation, ensuring the player's guesses are within the grid board and preventing them from guessing the same position twice.
 
-* AI opponent which will randomly guess player ships
+* AI opponent which will randomly guess player ship locations. 
 
-* Win/Loss tracking.
+* Win/Loss tracking at the conclusion of each game, numbering how many times the player has defeated or lost to the AI Aliens.
 
 * Loop to allow the player to play again upon game completion
 
