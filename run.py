@@ -160,7 +160,7 @@ def playgame():
                     print("Please enter a valid name!")
 
             print(f'Greetings Commander {name}. The world Naval Alliance needs your help!\n'
-                  'Aliens are invading and you need to blow em up.\n')
+                  'Aliens are invading and you need to blow em up.')
             time.sleep(1)
             print('Ironically this takes the form of a game of battleships. What are the chances?!')
             time.sleep(1)
@@ -210,7 +210,7 @@ def playgame():
                 playgame()
             break
 
-        print("Aliens turn...")
+        print("Alien's turn...")
         time.sleep(1)
         
         # AI's turn
