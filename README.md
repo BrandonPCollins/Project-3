@@ -1,10 +1,10 @@
 # Project 3 - Battleships 
 
-![image](https://github.com/BrandonPCollins/Project-3/assets/131177569/1f99f1d0-9777-488e-a794-954c3ee3d006)
-
-
+![image](https://github.com/BrandonPCollins/Project-3/assets/131177569/49b95c33-2d48-47a6-bc50-2895e4d2900a)
 
 My Python terminal project is a replication of the classic Pen and Paper game [Battleships](https://en.wikipedia.org/wiki/Battleship_(game)).
+
+The game presented here is a single-player guessing game presented under the conceit of an Alien Invasion. Matched against an AI opponent, the player must guess the location of all the AI's randomly placed Battleships before the AI can guess theirs. To add an extra layer of intensity, and to stop games from dragging, the player must complete this task within 15 turns, or lose. 
 
 [The live version of my project can be found here](https://project-3-3f38e4872683.herokuapp.com/)
 
@@ -13,6 +13,7 @@ My Python terminal project is a replication of the classic Pen and Paper game [B
 ### Future Features 
 
 * Allow the player to set the variables for board size and ship size.
+* Allow for the players to customise the number of turns they'd like to play for, adding an unlimited turns mode.
 * Allow the player to place their ships manually rather than having them be placed randomly.
 * Allow for ships that are larger than 1x1 space, as in the Battleships board game.
 
