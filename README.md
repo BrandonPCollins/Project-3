@@ -37,7 +37,13 @@ Random board generation for both the player and the opposing AI.
 * Allow the player to place their ships manually rather than having them be placed randomly.
 * Allow for ships that are larger than 1x1 space, as in the Battleships board game.
 
-## Data Model? 
+## Data Model
+
+This project makes use of the Board class as its primary model. The game makes use of 3 instances of the Board class. The AI's board is composed of a Hidden Board; which is used to hold the hidden ships, and a Guess Board; displaying the player's current progress and updating as appropriate based on their input.
+
+The Player's Board is a single board, used as an argument in the Create Ships function. There is no need to have a separate hidden board as the player is always aware of the state of their own board, including their own randomly placed ships and the status of the AI's guesses.
+
+The boards are reprinted and updated at the conclusion of each turn cycle.
 
 ## Testing
 
