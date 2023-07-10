@@ -20,6 +20,15 @@ Random board generation for both the player and the opposing AI.
 
 ![image](https://github.com/BrandonPCollins/Project-3/assets/131177569/fa41ec78-7104-4ca9-8b1d-a0492ddf54c2)
 
+* Input validation, ensuring the player's guesses are within the grid board and preventing them from guessing the same position twice.
+
+* AI opponent which will randomly guess player ships
+
+* Win/Loss tracking.
+
+* Loop to allow the player to play again upon game completion
+
+![image](https://github.com/BrandonPCollins/Project-3/assets/131177569/5a19d006-cc0d-4008-afb3-eed18f7a8b49)
 
 ### Future Features 
 
