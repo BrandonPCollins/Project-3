@@ -10,7 +10,9 @@ The game presented here is a single-player guessing game presented under the con
 
 ## Features
 
-Random board generation for both the player and the opposing AI. 
+* Random board generation for both the player and the opposing AI. 
+
+* Game accepts user input. The player enters a row, numbered 1 through 8, and a column, lettered A through H, in order to select a coordinate to attempt to "hit" the enemy ships. The player wins the game by hitting all 5 of the randomly placed ships on the opponent's board.
 
 * Player's ships are demarcated with a blue 'O'
 
