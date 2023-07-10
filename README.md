@@ -1,19 +1,12 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome USER_NAME,
-
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
-
 # Project 3 - Battleships 
 
 ![image](https://github.com/BrandonPCollins/Project-3/assets/131177569/1f99f1d0-9777-488e-a794-954c3ee3d006)
 
 
-https://project-3-3f38e4872683.herokuapp.com/ 
 
-## How to Play 
+My Python terminal project is a replication of the classic Pen and Paper game [Battleships](https://en.wikipedia.org/wiki/Battleship_(game)).
 
-My Python project is based on the classic Pen and Paper game Battleships.
+[The live version of my project can be found here](https://project-3-3f38e4872683.herokuapp.com/)
 
 ## Features
 
